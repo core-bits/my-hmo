@@ -1,0 +1,44 @@
+<ni-card [title]="'Create your account'" [align]="'center'">
+  <form (ngSubmit)="onSubmit()">
+    <md-input-container>
+      <input mdInput placeholder="Organization" value="">
+    </md-input-container>
+
+    <md-input-container>
+      <input mdInput placeholder="Address" value="">
+    </md-input-container>
+
+    <md-input-container>
+      <input mdInput placeholder="Telephone Number" value="">
+    </md-input-container>
+
+    <md-input-container>
+      <input mdInput placeholder="Email address" value="">
+    </md-input-container>
+
+    <md-input-container>
+      <input mdInput placeholder="Website" value="">
+    </md-input-container>
+
+    <md-input-container>
+      <input mdInput placeholder="Password" value="">
+    </md-input-container>
+
+    <md-input-container>
+      <input mdInput placeholder="Confirm Password" value="">
+    </md-input-container>
+
+    <div class="text-left mb-module">
+      <md-checkbox>
+        I have read and agree to the terms of service.
+      </md-checkbox>
+    </div>
+
+    <button md-raised-button color="primary" type="submit">Sign Up</button>
+
+    <div class="additional-info">
+      Already have an account?
+      <a href="" routerLink="/auth/login">Sign in</a>
+    </div>
+  </form>
+</ni-card>

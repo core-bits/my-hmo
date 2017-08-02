@@ -1,0 +1,29 @@
+<ni-card [title]="'Sign in with your app id to continue'" [align]="'center'">
+  <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value); loginForm.resetForm();" autocomplete="false">
+    <md-input-container>
+      <input mdInput placeholder="Username" (ngModel)="username" id="username" name="username">
+    </md-input-container>
+
+    <md-input-container>
+      <input mdInput placeholder="Password" type="password" (ngModel)="password" id="password" name="password">
+    </md-input-container>
+
+    <div class="text-left mb-module">
+      <md-checkbox>
+        Keep me signed in
+      </md-checkbox>
+    </div>
+
+    <button [disabled]="loginInProgress" md-raised-button color="primary" type="submit">Sign In</button>
+
+    <div class="additional-info">
+      <a (click)="onHMOSignUp()">HMO Sign-up</a>
+      <span class="divider"></span>
+      <a (click)="onEmployerSignUp()">Employer Sign-up</a>
+      <span class="divider"></span>
+      <a (click)="onHospitalSignUp()">Hospital Sign-up</a>
+      <span class="divider"></span>
+      <a (click)="onForgot()">Forgot your password?</a>
+    </div>
+  </form>
+</ni-card>
