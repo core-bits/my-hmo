@@ -7,7 +7,7 @@ export interface IUser {
     lastName: string;
     email: string;
     loginName: string;
-    auth_token: string;
+    authToken: string;
     roles: IUserRole[];
 }
 

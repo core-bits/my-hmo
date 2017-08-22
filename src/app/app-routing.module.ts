@@ -8,12 +8,19 @@ import { ParamUtil, ContentType } from "app/core/iparam";
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'pages',
+    redirectTo: 'private',
     pathMatch: 'full'
   },
   {
     path: 'pages',
     loadChildren: './pages/pages.module#PagesModule',
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
+    canLoad: [AuthGuard]
+  },
+  {
+    path: 'private',
+    loadChildren: './private/private.module#PrivateModule',
     canActivate: [AuthGuard],
     canActivateChild: [AuthGuard],
     canLoad: [AuthGuard]

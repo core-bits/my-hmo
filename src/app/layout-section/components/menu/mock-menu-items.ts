@@ -5,7 +5,7 @@ export const MENUITEMS: IMenuItem[] = MENU;
 
 export const LIVE_MENUITEMS: IMenuItem[] = [
     {
-        title: 'DASHBOARD',
+        title: 'HMO',
         groupTitle: true
     },
     {
@@ -15,7 +15,7 @@ export const LIVE_MENUITEMS: IMenuItem[] = [
             bg: '#ea8080',
             color: 'rgba(0,0,0,.87)'
         },
-        routing: '/pages/layout/default/dashboard',
+        routing: '/private/hmo/dashboard/main',
         badge: {
             text: 'New',
             color: '#fff',
@@ -24,71 +24,13 @@ export const LIVE_MENUITEMS: IMenuItem[] = [
         sub: [
             {
                 title: 'Dashboard v1',
-                routing: '/pages/layout/default/dashboard'
+                routing: '/private/hmo/dashboard/main'
             },
             {
                 title: 'Dashboard v2',
                 routing: '/pages/layout/default/dashboard-2'
             }
         ]
-    },
-    {
-        title: 'Widgets',
-        icon: {
-            class: 'fa fa-th',
-            bg: '#E1BEE7',
-            color: 'rgba(0,0,0,.87)'
-        },
-        routing: '/pages/layout/default/widgets'
-    },
-    {
-        title: 'Calendar',
-        icon: {
-            class: 'fa fa-calendar',
-            bg: '#C5CAE9',
-            color: 'rgba(0,0,0,.87)'
-        },
-        routing: '/pages/layout/default/calendar'
-    },
-    {
-        title: 'Layouts',
-        icon: {
-            class: 'fa fa-columns',
-            bg: '#FF8A65',
-            color: 'rgba(0,0,0,.87)'
-        },
-        routing: '/pages/layout/default/dashboard',
-        badge: {
-            text: '5',
-            color: '#fff',
-            bg: '#43A047'
-        },
-        sub: [
-            {
-                title: 'Default',
-                routing: '/pages/layout/default/layouts'
-            },
-            {
-                title: 'Compressed menu',
-                routing: '/pages/layout/default-c/layouts'
-            },
-            {
-                title: 'Boxed',
-                routing: '/pages/layout/boxed/layouts'
-            },
-            {
-                title: 'Boxed compressed menu',
-                routing: '/pages/layout/boxed-c/layouts'
-            },
-            {
-                title: 'Extra',
-                routing: '/pages/layout/extra/sign-in'
-            }
-        ]
-    },
-    {
-        title: 'HMO',
-        groupTitle: true
     },
     {
         title: 'Employees',
@@ -98,6 +40,10 @@ export const LIVE_MENUITEMS: IMenuItem[] = [
             color: 'rgba(0,0,0,.87)'
         },
         sub: [
+            {
+                title: 'List',
+                routing: '/private/hmo/employee/list'
+            },
             {
                 title: 'Form Elements',
                 routing: '/pages/layout/default/form-elements'
@@ -113,13 +59,21 @@ export const LIVE_MENUITEMS: IMenuItem[] = [
         ]
     },
     {
-        title: 'Companies',
+        title: 'Employers',
         icon: {
             class: 'fa fa-university',
             bg: '#B3E5FC',
             color: 'rgba(0,0,0,.87)'
         },
         sub: [
+            {
+                title: 'Unassigned',
+                routing: '/private/hmo/employer/list'
+            },
+            {
+                title: 'Assigned',
+                routing: '/private/hmo/employer/assign'
+            },
             {
                 title: 'Button',
                 routing: '/pages/layout/default/button'
@@ -207,6 +161,14 @@ export const LIVE_MENUITEMS: IMenuItem[] = [
         },
         sub: [
             {
+                title: 'Assigned',
+                routing: '/private/hmo/hospital/list'
+            },
+            {
+                title: 'Unassigned',
+                routing: '/private/hmo/hospital/assign'
+            },
+            {
                 title: 'Alerts',
                 routing: '/pages/layout/default/ni-alerts'
             },
@@ -231,45 +193,6 @@ export const LIVE_MENUITEMS: IMenuItem[] = [
                 routing: '/pages/layout/default/ni-files'
             }
         ]
-    },
-    {
-        title: 'Profile Management',
-        icon: {
-            class: 'fa fa-user-circle-o',
-            bg: '#FFE082',
-            color: 'rgba(0,0,0,.87)'
-        },
-        sub: [
-            {
-                title: 'Simple table',
-                routing: '/pages/layout/default/simple-table'
-            },
-            {
-                title: 'Editing table',
-                routing: '/pages/layout/default/editing-table'
-            },
-            {
-                title: 'Filtering table',
-                routing: '/pages/layout/default/filtering-table'
-            },
-            {
-                title: 'Pagination table',
-                routing: '/pages/layout/default/pagination-table'
-            },
-            {
-                title: 'Bootstrap tables',
-                routing: '/pages/layout/default/bootstrap-tables'
-            }
-        ]
-    },        
-    {
-        title: 'Notifications',
-        icon: {
-            class: 'fa fa-bell',
-            bg: '#F0F4C3',
-            color: 'rgba(0,0,0,.87)'
-        },
-        routing: '/pages/layout/default/typography'
     },
     {
         title: 'Reports',
@@ -303,19 +226,14 @@ export const LIVE_MENUITEMS: IMenuItem[] = [
         },
         sub: [
             {
-                title: 'Ng2 Charts',
-                routing: '/pages/layout/default/ng2-charts'
+                title: 'Accounts',
+                routing: '/private/hmo/setting/account'
             },
             {
-                title: 'Ngx Charts',
-                routing: '/pages/layout/default/ngx-charts'
+                title: 'Notifications',
+                routing: '/private/hmo/setting/notification'
             }
-            ,
-            {
-                title: 'Amcharts',
-                routing: '/pages/layout/default/amcharts'
-            }
-        ]
+        ]     
     },
     {
         title: 'Company',
@@ -464,45 +382,6 @@ export const LIVE_MENUITEMS: IMenuItem[] = [
         ]
     },
     {
-        title: 'Profile Management',
-        icon: {
-            class: 'fa fa-user-circle-o',
-            bg: '#FFE082',
-            color: 'rgba(0,0,0,.87)'
-        },
-        sub: [
-            {
-                title: 'Simple table',
-                routing: '/pages/layout/default/simple-table'
-            },
-            {
-                title: 'Editing table',
-                routing: '/pages/layout/default/editing-table'
-            },
-            {
-                title: 'Filtering table',
-                routing: '/pages/layout/default/filtering-table'
-            },
-            {
-                title: 'Pagination table',
-                routing: '/pages/layout/default/pagination-table'
-            },
-            {
-                title: 'Bootstrap tables',
-                routing: '/pages/layout/default/bootstrap-tables'
-            }
-        ]
-    },        
-    {
-        title: 'Notifications',
-        icon: {
-            class: 'fa fa-bell',
-            bg: '#F0F4C3',
-            color: 'rgba(0,0,0,.87)'
-        },
-        routing: '/pages/layout/default/typography'
-    },
-    {
         title: 'Reports',
         icon: {
             class: 'fa fa-pie-chart',
@@ -534,19 +413,14 @@ export const LIVE_MENUITEMS: IMenuItem[] = [
         },
         sub: [
             {
-                title: 'Ng2 Charts',
-                routing: '/pages/layout/default/ng2-charts'
+                title: 'Accounts',
+                routing: '/private/hmo/setting/account'
             },
             {
-                title: 'Ngx Charts',
-                routing: '/pages/layout/default/ngx-charts'
+                title: 'Notification',
+                routing: '/private/hmo/setting/notification'
             }
-            ,
-            {
-                title: 'Amcharts',
-                routing: '/pages/layout/default/amcharts'
-            }
-        ]
+        ]     
     },
     {
         title: 'Hospital',
@@ -661,45 +535,6 @@ export const LIVE_MENUITEMS: IMenuItem[] = [
         ]
     },
     {
-        title: 'Profile Management',
-        icon: {
-            class: 'fa fa-user-circle-o',
-            bg: '#FFE082',
-            color: 'rgba(0,0,0,.87)'
-        },
-        sub: [
-            {
-                title: 'Simple table',
-                routing: '/pages/layout/default/simple-table'
-            },
-            {
-                title: 'Editing table',
-                routing: '/pages/layout/default/editing-table'
-            },
-            {
-                title: 'Filtering table',
-                routing: '/pages/layout/default/filtering-table'
-            },
-            {
-                title: 'Pagination table',
-                routing: '/pages/layout/default/pagination-table'
-            },
-            {
-                title: 'Bootstrap tables',
-                routing: '/pages/layout/default/bootstrap-tables'
-            }
-        ]
-    },        
-    {
-        title: 'Notifications',
-        icon: {
-            class: 'fa fa-bell',
-            bg: '#F0F4C3',
-            color: 'rgba(0,0,0,.87)'
-        },
-        routing: '/pages/layout/default/typography'
-    },
-    {
         title: 'Reports',
         icon: {
             class: 'fa fa-pie-chart',
@@ -714,8 +549,7 @@ export const LIVE_MENUITEMS: IMenuItem[] = [
             {
                 title: 'Ngx Charts',
                 routing: '/pages/layout/default/ngx-charts'
-            }
-            ,
+            },
             {
                 title: 'Amcharts',
                 routing: '/pages/layout/default/amcharts'
@@ -731,27 +565,45 @@ export const LIVE_MENUITEMS: IMenuItem[] = [
         },
         sub: [
             {
-                title: 'Ng2 Charts',
-                routing: '/pages/layout/default/ng2-charts'
+                title: 'Accounts',
+                routing: '/private/hmo/setting/account'
             },
             {
-                title: 'Ngx Charts',
-                routing: '/pages/layout/default/ngx-charts'
+                title: 'Notification',
+                routing: '/private/hmo/setting/notification'
             }
-            ,
-            {
-                title: 'Amcharts',
-                routing: '/pages/layout/default/amcharts'
-            }
-        ]
-    }
-    ,
+        ]     
+    },
     {
         title: 'Employee',
         groupTitle: true
-    },  
+    },    
     {
-        title: 'Profile Management',
+        title: 'Dashboards',
+        icon: {
+            class: 'fa fa-home',
+            bg: '#ea8080',
+            color: 'rgba(0,0,0,.87)'
+        },
+        routing: '/private/hmo/dashboard/main',
+        badge: {
+            text: 'New',
+            color: '#fff',
+            bg: '#E57373'
+        },
+        sub: [
+            {
+                title: 'Dashboard v1',
+                routing: '/private/hmo/dashboard/main'
+            },
+            {
+                title: 'Dashboard v2',
+                routing: '/pages/layout/default/dashboard-2'
+            }
+        ]
+    },
+    {
+        title: 'Account Management',
         icon: {
             class: 'fa fa-user-circle-o',
             bg: '#FFE082',

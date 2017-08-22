@@ -31,7 +31,8 @@ export class LoginComponent implements OnInit {
                 } else {
                     //this.toastr.success("Login Successful", "Welcome " + this.profile.user.firstName);
                     this.profile.isLiveMenu = true;
-                    this.router.navigate(['/pages/layout/default/dashboard']);
+                    //this.router.navigate(['/pages/layout/default/dashboard']);
+                    this.router.navigate(['/private/hmo/dashboard/main']);
                 }                
             }, 
             err => {

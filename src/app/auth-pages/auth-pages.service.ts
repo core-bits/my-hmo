@@ -4,26 +4,7 @@ import { Observable } from 'rxjs/Rx';
 import { UserProfileService, IResponse, IUser, ICommonResponse } from "app/core/user-profile.service";
 import { SpinnerService } from "app/core/spinner/spinner.service";
 import { ParamUtil, ContentType } from "app/core/iparam";
-
-export interface IHMO{
-    name: string;
-    description?:string;
-    address: string;
-    email: string;
-    telephoneNumber: string;
-    website?: string;
-    hmoNumber: string;
-}
-
-export interface IEmployer{
-
-}
-
-export interface IHospital{
-
-}
-
-
+import { IHMO, ICompany, IHospital } from "app/shared/service/common.service";
 
 @Injectable()
 export class AuthPagesService {
@@ -38,7 +19,7 @@ export class AuthPagesService {
         let params = new URLSearchParams();
         params.append("username", username);
         params.append("password", password);        
-        return this.http.post(this.PATH + "authenticate/fakelogin", params, this.paramUtil.getDefaultRequestOption(this.contentType.APPLICATION_X_WWW_FORM_URLENCONDED))
+        return this.http.post(this.PATH + "authenticate/login", params, this.paramUtil.getRequestOption(this.contentType.APPLICATION_X_WWW_FORM_URLENCONDED))
             .do((response: Response) => {
                 if (response) {
                     let iresponse = <IResponse<IUser>>response.json();
@@ -46,34 +27,36 @@ export class AuthPagesService {
                     this.currentUser.isLoggedIn = !!this.currentUser.user;
                 }
             },
-            err => this.handleErrorWithBooleanReturnValue,
+            err => this.paramUtil.handleErrorWithBooleanReturnValue,
             () => this.spinnerService.hide
         );
     }
 
-    hmoSignUp(hmo: IHMO): Observable<ICommonResponse>{
+    signUpHMO(hmo: IHMO): Observable<ICommonResponse>{
         this.spinnerService.show();
-        let params = new URLSearchParams();
-        params.append("name", hmo.name);
-        params.append("description", hmo.description);
-        params.append("address", hmo.address);
-        params.append("email", hmo.email);
-        params.append("hmoNumber", hmo.hmoNumber);
-        params.append("telephoneNumber", hmo.telephoneNumber);
-        params.append("website", hmo.website);
-        return this.http.post(this.PATH + "hmo/create", hmo, this.paramUtil.getDefaultRequestOption(this.contentType.APPLICATION_JSON))
+        return this.http.post(this.PATH + "hmo/create", hmo, this.paramUtil.getRequestOption())
         .map((response: Response) => {
             return <ICommonResponse>response.json();
-        }).catch(this.handleError)
+        }).catch(this.paramUtil.handleError)
         .finally(() => this.spinnerService.hide());
     }
 
-    private handleError(error: Response) {
-        return Observable.throw(error.statusText);
+    signUpCompany(company: ICompany): Observable<ICommonResponse>{
+        this.spinnerService.show();
+        return this.http.post(this.PATH + "company/create", company, this.paramUtil.getRequestOption())
+        .map((response: Response) => {
+            return <ICommonResponse>response.json();
+        }).catch(this.paramUtil.handleError)
+        .finally(() => this.spinnerService.hide());
     }
 
-    private handleErrorWithBooleanReturnValue(error: Response){
-        return Observable.of(false);
+    signUpHospital(hospital: IHospital): Observable<ICommonResponse>{
+        this.spinnerService.show();
+        return this.http.post(this.PATH + "hospital/create", hospital, this.paramUtil.getRequestOption())
+        .map((response: Response) => {
+            return <ICommonResponse>response.json();
+        }).catch(this.paramUtil.handleError)
+        .finally(() => this.spinnerService.hide());
     }
 
 }

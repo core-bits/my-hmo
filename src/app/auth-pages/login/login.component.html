@@ -1,5 +1,5 @@
 <ni-card [title]="'Sign in with your app id to continue'" [align]="'center'">
-  <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value); loginForm.resetForm();" autocomplete="false">
+  <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value); loginForm.resetForm();" novalidate autocomplete="false">
     <md-input-container>
       <input mdInput placeholder="Username" (ngModel)="username" id="username" name="username">
     </md-input-container>

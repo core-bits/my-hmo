@@ -1,31 +1,26 @@
-<ni-card [title]="'Create your account'" [align]="'center'">
-  <form (ngSubmit)="onSubmit()">
+<ni-card [title]="'HMO Account Registration'" [align]="'center'">
+  <form #signUpForm="ngForm" (ngSubmit)="signUp(signUpForm.value); signUpForm.resetForm();" novalidate autocomplete="false">
+    <div class="text-left mb-module">     
+        Fields marked with aesterisk (*) are required
+    </div> 
     <md-input-container>
-      <input mdInput placeholder="Organization" value="">
+      <input mdInput placeholder="Name *" (ngModel)="name" id="name" name="name">
     </md-input-container>
 
     <md-input-container>
-      <input mdInput placeholder="Address" value="">
+      <input mdInput placeholder="Address *" (ngModel)="address" id="address" name="address">
     </md-input-container>
 
     <md-input-container>
-      <input mdInput placeholder="Telephone Number" value="">
+      <input mdInput placeholder="Telephone Number *" (ngModel)="telephoneNumber" id="telephoneNumber" name="telephoneNumber">
     </md-input-container>
 
     <md-input-container>
-      <input mdInput placeholder="Email address" value="">
+      <input mdInput placeholder="Email Address *" (ngModel)="email" id="email" name="email">
     </md-input-container>
 
     <md-input-container>
-      <input mdInput placeholder="Website" value="">
-    </md-input-container>
-
-    <md-input-container>
-      <input mdInput placeholder="Password" value="">
-    </md-input-container>
-
-    <md-input-container>
-      <input mdInput placeholder="Confirm Password" value="">
+      <input mdInput placeholder="Website" (ngModel)="website" id="website" name="website">
     </md-input-container>
 
     <div class="text-left mb-module">

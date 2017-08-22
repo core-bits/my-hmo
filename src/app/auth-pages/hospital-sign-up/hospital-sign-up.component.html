@@ -1,3 +1,39 @@
-<p>
-  hospital-sign-up works!
-</p>
+<ni-card [title]="'Hospital Account Registration'" [align]="'center'">
+  <form #signUpForm="ngForm" (ngSubmit)="signUp(signUpForm.value); signUpForm.resetForm();" novalidate autocomplete="false">
+    <div class="text-left mb-module">     
+        Fields marked with aesterisk (*) are required
+    </div> 
+    <md-input-container>
+      <input mdInput placeholder="Name *" (ngModel)="name" id="name" name="name">
+    </md-input-container>
+
+    <md-input-container>
+      <input mdInput placeholder="Address *" (ngModel)="address" id="address" name="address">
+    </md-input-container>
+
+    <md-input-container>
+      <input mdInput placeholder="Telephone Number *" (ngModel)="telephoneNumber" id="telephoneNumber" name="telephoneNumber">
+    </md-input-container>
+
+    <md-input-container>
+      <input mdInput placeholder="Email Address *" (ngModel)="email" id="email" name="email">
+    </md-input-container>
+
+    <md-input-container>
+      <input mdInput placeholder="Website" (ngModel)="website" id="website" name="website">
+    </md-input-container>
+
+    <div class="text-left mb-module">
+      <md-checkbox>
+        I have read and agree to the terms of service.
+      </md-checkbox>
+    </div>
+
+    <button md-raised-button color="primary" type="submit">Sign Up</button>
+
+    <div class="additional-info">
+      Already have an account?
+      <a href="" routerLink="/auth/login">Sign in</a>
+    </div>
+  </form>
+</ni-card>
